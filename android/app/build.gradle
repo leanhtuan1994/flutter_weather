@@ -43,6 +43,8 @@ android {
         targetSdkVersion 28
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
+        resValue "string", "app_name", "Weather"
+
     }
 
     buildTypes {
@@ -51,6 +53,19 @@ android {
             // Signing with the debug keys for now, so `flutter run --release` works.
             signingConfig signingConfigs.debug
         }
+    }
+
+    flavorDimensions "default"
+    productFlavors {
+        development {
+            applicationIdSuffix ".dev"
+            versionNameSuffix = "-dev"
+            resValue "string", "app_name", "Weather Dev"
+        }
+        production {
+            resValue "string", "app_name", "Weather"
+        }
+
     }
 }
 

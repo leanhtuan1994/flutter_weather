@@ -9,14 +9,14 @@ import 'presentation/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  appConfig = Config.from(Env.devEnv);
+  appConfig = Config.from(Env.prodEnv);
   Intl.defaultLocale = "vi_VN";
 
   await injection.init();
   await PreferencesHelper.getInstance();
 
   SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
-      statusBarColor: Colors.white, statusBarBrightness: Brightness.dark));
+      statusBarColor: Colors.black, statusBarBrightness: Brightness.dark));
 
   runApp(const App());
 }

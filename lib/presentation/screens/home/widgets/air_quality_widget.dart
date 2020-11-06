@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_base/common/res/index.dart';
 import 'package:flutter_base/presentation/screens/home/widgets/title_widgets.dart';
 
 import 'air_chart_widget.dart';

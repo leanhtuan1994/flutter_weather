@@ -57,6 +57,7 @@ class _HomePageState extends State<HomePage> {
           child: ListView(
             physics: ClampingScrollPhysics(),
             children: [
+              Gaps.vGap12,
               _buildImageView(),
               Gaps.vGap12,
               TemperatureWidget(),
