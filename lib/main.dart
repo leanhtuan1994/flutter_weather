@@ -9,8 +9,25 @@ import 'presentation/app.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  appConfig = Config.from(Env.prodEnv);
+
   Intl.defaultLocale = "vi_VN";
+
+  print("tuananhle init");
+
+  await const MethodChannel("flavor")
+      .invokeMethod<String>("getFlavor")
+      .then((String flavor) {
+    print("tuananhle flavor: " + flavor);
+    switch (flavor) {
+      case "development":
+        appConfig = Config.from(Env.devEnv);
+        break;
+      default:
+        appConfig = Config.from(Env.prodEnv);
+    }
+  }).catchError((error) {
+    appConfig = Config.from(Env.prodEnv);
+  });
 
   await injection.init();
   await PreferencesHelper.getInstance();
